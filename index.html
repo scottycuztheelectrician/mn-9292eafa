@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap">
 <style>
-/* Layout: a showroom menu. Navy cover with BKM's kitchens, then a cream floor of nine capped cards (each with a small working example on a navy stage), a navy "one app" band, and one gradient close where the picked list lives. Fix Your Brand colors, one committed look on purpose. */
+/* Layout: a walk-through for Frankie and his family. Cover that fades through BKM's own kitchens, a note from Scott, a plain-words band for the family, a chat to try, then a cream floor of nine capped cards (each with a small working example on a navy stage), a navy "one app" band, and one gradient close where the picked list lives. Fix Your Brand colors, one committed look on purpose. */
 :root{
   --navy:#0F1830; --navy-2:#18244A; --navy-3:#22305C; --line-d:#2C3B6B;
   --cream:#F6F4EF; --white:#FFFFFF; --rule:#E2DCCF;
@@ -286,6 +286,89 @@ a:focus-visible,button:focus-visible,textarea:focus-visible{outline:3px solid va
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
+/* ---------- INS: blueprint art instead of photos ---------- */
+.sky{position:absolute;inset:0;width:100%;height:100%;display:block}
+.plan{position:relative;border-radius:20px;overflow:hidden;background:var(--navy-2);border:1px solid var(--line-d);aspect-ratio:5/4;min-width:0}
+.plan .cap{position:absolute;left:16px;right:16px;top:14px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--body-d)}
+.plan .cap b{color:var(--pink)}
+.stage > .sky{opacity:.9}
+.slide > svg.sky{position:absolute;z-index:0}
+.reel.main .sky{animation:pan 9s ease-in-out infinite alternate}
+.tile{background-color:var(--navy-3);background-image:linear-gradient(rgba(91,156,255,.2) 1px,transparent 1px),linear-gradient(90deg,rgba(91,156,255,.2) 1px,transparent 1px);background-size:13px 13px;display:grid;place-items:center;text-align:center;font:700 10px/1.15 var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--cream);padding:2px}
+.tile.p{background-color:#6B2256}
+.tile.b{background-color:#234AA6}
+.dmh .av.txt{display:grid;place-items:center;background:var(--navy-3);font:700 11px var(--display);color:var(--cream)}
+@media (max-width:980px){.plan{aspect-ratio:16/9}}
+
+/* ---------- v02: video cover, note, live chat ---------- */
+.cover{position:relative;overflow:hidden;isolation:isolate}
+.cover .bgv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.cover::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(15,24,48,.95) 0%,rgba(15,24,48,.8) 42%,rgba(15,24,48,.3) 100%),linear-gradient(0deg,var(--navy) 0%,rgba(15,24,48,0) 38%)}
+.hero-body{max-width:860px;display:flex;flex-direction:column;gap:26px;padding-block:56px 96px}
+.btn2{font:700 18px var(--sans);color:var(--cream);border:1px solid rgba(255,255,255,.55);border-radius:999px;padding:15px 26px;text-decoration:none;display:inline-block;background:rgba(15,24,48,.45)}
+.btn2:hover{border-color:var(--pink)}
+.facts{display:flex;gap:10px;flex-wrap:wrap}
+.facts span{font-size:15px;font-weight:500;border:1px solid rgba(255,255,255,.22);background:rgba(15,24,48,.55);border-radius:999px;padding:8px 15px}
+.note{padding-block:84px 40px}
+.note-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:48px;align-items:center}
+.letter{background:var(--white);border:1px solid var(--rule);border-top:8px solid var(--pink);border-radius:20px;padding:40px 42px;display:flex;flex-direction:column;gap:18px;font-size:21px;line-height:1.5;color:var(--ink);min-width:0}
+.letter .hi{font:700 32px var(--display)}
+.letter .sig{font:700 28px var(--display);margin-top:4px}
+.letter .sig small{display:block;font:500 15px var(--sans);color:var(--body);letter-spacing:.02em}
+.note-photo{position:relative;margin:0;border-radius:20px;overflow:hidden;aspect-ratio:4/5;background:var(--navy-2);min-width:0}
+.note-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.note-photo figcaption{position:absolute;left:14px;bottom:14px;background:rgba(15,24,48,.82);color:var(--cream);border-radius:999px;padding:7px 14px;font-size:14px;font-weight:700}
+.try{position:relative;background:var(--navy);color:var(--cream);padding-block:84px;overflow:hidden;isolation:isolate}
+.try .sky{z-index:-1;opacity:.22}
+.try .eyebrow{color:var(--pink)}
+.try-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:center}
+.try-txt{display:flex;flex-direction:column;gap:20px;min-width:0}
+.try-txt p{color:var(--body-d);font-size:20px;max-width:30em}
+.livechat{background:var(--navy-2);border:1px solid var(--line-d);border-radius:20px;display:flex;flex-direction:column;overflow:hidden;min-width:0}
+.lc-h{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:15px 18px;border-bottom:1px solid var(--line-d);font:700 19px var(--display)}
+.lc-h small{font:700 12px var(--sans);letter-spacing:.14em;color:var(--ok);display:flex;align-items:center;gap:8px}
+.lc-h small i{width:9px;height:9px;border-radius:50%;background:var(--ok)}
+.lc-t{height:330px;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;font-size:17px;line-height:1.4}
+.lc-t p{max-width:86%;padding:11px 15px;border-radius:18px;white-space:pre-wrap}
+.lc-t .c{align-self:flex-end;background:var(--blue);color:#fff;border-bottom-right-radius:6px}
+.lc-t .b{align-self:flex-start;background:var(--navy-3);border-bottom-left-radius:6px}
+.lc-q{display:flex;flex-wrap:wrap;gap:8px;padding:0 16px 12px}
+.lc-q button{font:500 15px var(--sans);background:transparent;color:var(--cream);border:1px solid var(--line-d);border-radius:999px;padding:9px 14px;cursor:pointer}
+.lc-q button:hover{border-color:var(--pink)}
+.lc-f{display:flex;gap:10px;padding:12px 16px 16px;border-top:1px solid var(--line-d)}
+.lc-f input{flex:1;min-width:0;font:17px var(--sans);color:var(--cream);background:var(--navy);border:1px solid var(--line-d);border-radius:999px;padding:13px 18px}
+.lc-f input:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.lc-f .btn{padding:13px 22px;font-size:16px}
+.lc-n{padding:0 18px 14px;font-size:14px;color:var(--muted-d)}
+.reel video,.ad .im video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media (max-width:980px){.note-grid,.try-grid{grid-template-columns:1fr;gap:36px}.note-photo{aspect-ratio:16/10}.hero-body{padding-block:28px 64px}}
+@media (max-width:620px){.letter{padding:28px 22px;font-size:19px}.lc-t{height:300px}}
+
+/* ---------- BKM v02: photo cover, family band, photo strip ---------- */
+.slides{position:absolute;inset:0;z-index:-2}
+.slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease}
+.slides img.on{opacity:1;animation:kb 9s ease-out forwards}
+@keyframes kb{from{transform:scale(1.08) translate(1%,1%)}to{transform:scale(1.01) translate(0,0)}}
+.cover{min-height:min(88vh,860px);display:flex;flex-direction:column}
+.cover > .wrap{width:100%}
+.cover > .wrap:last-child{margin-top:auto}
+.how{padding-block:44px 34px}
+.how .ghead{margin-bottom:30px}
+.strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:28px}
+.strip figure{margin:0;border-radius:18px;overflow:hidden;aspect-ratio:3/4;background:var(--navy-2)}
+.strip img{width:100%;height:100%;object-fit:cover;display:block}
+.how-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.hc{background:var(--white);border:1px solid var(--rule);border-top:8px solid var(--pink);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.hc:nth-child(2){border-top-color:var(--blue)}
+.hc p{color:var(--body);font-size:19px}
+.plain{margin-top:26px;background:var(--navy);color:var(--cream);border-radius:20px;padding:26px 30px;font:700 clamp(21px,2.3vw,27px)/1.25 var(--display)}
+.plain em{font-style:normal;color:var(--pink)}
+.try img.sky{object-fit:cover;opacity:.16}
+.reel.sm img{animation:pan 11s ease-in-out infinite alternate-reverse}
+@media (max-width:980px){.how-grid{grid-template-columns:1fr}.cover{min-height:0}}
+@media (max-width:620px){.strip{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+
 /* ---------- send to Scott ---------- */
 .send{display:flex;flex-direction:column;gap:14px}
 .send label{display:flex;flex-direction:column;gap:6px;font-size:15px;font-weight:700;color:var(--body-d)}
@@ -303,26 +386,82 @@ button:disabled{opacity:.6;cursor:default}
 <body>
 
 <header class="cover">
+  <div class="slides" id="slides" aria-hidden="true"><img src="menu-img/c_Nov13_0.jpg" alt="" class="on"><img src="menu-img/c_Nov13_1.jpg" alt=""><img src="menu-img/c_Nov06_0.jpg" alt=""><img src="menu-img/c_Aug31_0.jpg" alt=""></div>
   <div class="wrap top"><span class="mark">FIX YOUR BRAND</span><span class="for">Made for Frankie Esposito · Beautiful Kitchens and More</span></div>
-  <div class="wrap cover-grid">
-    <div class="cover-txt">
-      <p class="eyebrow">BKM · Staten Island · The tool menu</p>
-      <h1>Pick what BKM <em>turns on first.</em></h1>
-      <p class="lead">Nine tools for the next generation of BKM. <b>Each one works on its own.</b> Start with one. Add the rest when you’re ready. Tap the ones you want and your list builds at the bottom.</p>
-      <div class="go"><a class="btn" href="#menu">See the menu</a><span>9 tools · about 2 minutes to go through</span></div>
-    </div>
-    <div class="shots" aria-hidden="true">
-      <figure><img src="sheet-img/Jan20_0.jpg" alt=""></figure>
-      <figure><img src="sheet-img/Nov13_0.jpg" alt=""></figure>
-      <figure><img src="sheet-img/Aug31_0.jpg" alt=""></figure>
+  <div class="wrap">
+    <div class="hero-body">
+      <p class="eyebrow">For Frankie · BKM · Staten Island</p>
+      <h1>Frankie, here’s what’s next <em>for BKM.</em></h1>
+      <p class="lead">Your family built BKM over 30 years. <b>Here are nine new tools for the next 30.</b> Try one yourself, tap the ones you like, and hit Send.</p>
+      <div class="go"><a class="btn" href="#menu">See the nine tools</a><a class="btn2" href="#try">Try the AI yourself</a></div>
+      <div class="facts"><span>Family owned · 30 years</span><span>Industrial Loop · Staten Island</span><span>All over the tri-state</span></div>
     </div>
   </div>
 </header>
 
+<section class="note">
+  <div class="wrap note-grid">
+    <div class="letter">
+      <p class="hi">Frankie,</p>
+      <p>I’m sorry the first one never reached you. So here it is, and this time I built it just for BKM, with your own kitchens in it.</p>
+      <p>Nothing at BKM is broken. Your family built a great shop, and the office takes good care of people. This is about what comes next: the tech, the AI and the marketing that keep BKM out in front.</p>
+      <p>You told me you want to be the new face of BKM. So I made this something you can show your dad, your mom and Samantha.</p>
+      <p>Try the chat. Tap the tools you like. Hit Send, and I’ll take it from there.</p>
+      <p class="sig">Scott<small>Fix Your Brand</small></p>
+    </div>
+    <figure class="note-photo"><img src="menu-img/Jan20_0.jpg" alt="A BKM kitchen with a long island and three hanging lights"><figcaption>A BKM kitchen, from @bkm_designs</figcaption></figure>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="ghead">
+      <p class="eyebrow">For Frank, Stacy and Samantha</p>
+      <h2>BKM already does great work. This keeps it out in front.</h2>
+      <p>Thirty years of kitchens, cabinets and countertops, built by one family. Frankie wants to add the next piece: the new tools.</p>
+    </div>
+    <div class="strip" aria-hidden="true">
+      <figure><img src="menu-img/Nov13_1.jpg" alt=""></figure>
+      <figure><img src="menu-img/Oct16_0.jpg" alt=""></figure>
+      <figure><img src="menu-img/Nov06_1.jpg" alt=""></figure>
+      <figure><img src="menu-img/Oct23_0.jpg" alt=""></figure>
+    </div>
+    <div class="how-grid">
+      <div class="hc"><h3>Nothing gets replaced.</h3><p>The office keeps doing what it does well. These tools cover the nights, the weekends and the places the office can’t be.</p></div>
+      <div class="hc"><h3>More people see the work.</h3><p>The kitchens are already beautiful. This puts them in front of more people across the tri-state, every week.</p></div>
+      <div class="hc"><h3>The family stays in charge.</h3><p>Start with one tool or a few. You see everything and say yes before anything goes live.</p></div>
+    </div>
+    <p class="plain">Thirty years got BKM here. <em>This is what’s next.</em></p>
+  </div>
+</section>
+
+<section class="try" id="try">
+  <img class="sky" src="menu-img/c_Nov13_1.jpg" alt="" aria-hidden="true">
+  <div class="wrap try-grid">
+    <div class="try-txt">
+      <p class="eyebrow">Try it yourself</p>
+      <h2>Ask BKM’s AI anything a customer would ask.</h2>
+      <p>This is the same AI that would answer your website chat, your Instagram and Facebook messages, and your phones after hours. It already knows the basics about BKM.</p>
+      <p>Type a question, or tap one of the buttons.</p>
+    </div>
+    <div class="livechat">
+      <div class="lc-h">BKM · AI <small><i></i><span id="lcBadge">DEMO</span></small></div>
+      <div class="lc-t" id="lcThread" aria-live="polite"><p class="b">Hi, thanks for reaching out to Beautiful Kitchens and More. How can I help?</p></div>
+      <div class="lc-q" id="lcQuick">
+        <button type="button">Do you make your own countertops?</button>
+        <button type="button">Can I come pick out a slab?</button>
+        <button type="button">Do you work in New Jersey?</button>
+        <button type="button">Do you do custom closets?</button>
+      </div>
+      <form class="lc-f" id="lcForm"><input id="askInput" type="text" autocomplete="off" placeholder="Type a question…" aria-label="Ask BKM’s AI a question"><button class="btn" type="submit" id="lcSend">Send</button></form>
+      <p class="lc-n" id="lcNote">Preview: these answers are pre-written samples. The real one learns BKM from your team first.</p>
+    </div>
+  </div>
+</section>
+
 <main class="menu" id="menu">
   <div class="wrap">
 
-    <!-- ===== Group 1 ===== -->
     <section class="group">
       <div class="ghead">
         <p class="eyebrow">Answer every customer</p>
@@ -332,119 +471,57 @@ button:disabled{opacity:.6;cursor:default}
       <div class="cards">
 
         <article class="card" data-id="webchat" data-name="AI chat on the BKM website">
-          <div class="stage">
-            <img class="bg" src="sheet-img/Nov13_0.jpg" alt="">
-            <div class="urlbar"><i></i><i></i><i></i><span>beautifulkitchensandmore.com</span></div>
-            <div class="widget">
-              <div class="wh"><i></i>Chat with BKM</div>
-              <div class="wt" data-seq>
-                <p class="bub c s">Do you do quartz in Brooklyn?</p>
-                <p class="bub b s">Yes. We fabricate and install all over the tri-state. Want to come see slabs?</p>
-                <p class="bub c s">Thursday after work?</p>
-                <p class="bub b s">Thursday at 4:00 is open. You’re booked.</p>
-              </div>
-            </div>
-          </div>
+          <div class="stage"><img class="bg" src="menu-img/Nov13_0.jpg" alt=""><div class="urlbar"><i></i><i></i><i></i><span>beautifulkitchensandmore.com</span></div><div class="widget"><div class="wh"><i></i>Chat with BKM</div><div class="wt" data-seq><p class="bub c s">Do you make your own countertops?</p><p class="bub b s">Yes. We cut and install them ourselves. Want to come pick a slab?</p><p class="bub c s">Yes. Can someone call me?</p><p class="bub b s">Sure. What’s the best number?</p></div></div></div>
           <div class="cbody">
             <div class="ctop"><h3>AI chat on your website</h3></div>
             <p class="what">A chat box on your site that answers questions day and night, in BKM’s voice.</p>
-            <ul class="gets"><li>Knows your services and your area</li><li>Gets their name, number and what they want</li><li>Hands the lead to the office</li></ul>
+            <ul class="gets"><li>Knows what BKM does and where you work</li><li>Gets their name, number and what they want</li><li>Hands it to the office</li></ul>
             <button class="add" type="button" id="add-webchat">Add to my list</button>
           </div>
         </article>
 
         <article class="card blue" data-id="social" data-name="AI chat for Instagram and Facebook">
-          <div class="stage">
-            <div class="dm">
-              <div class="dmh"><span class="av"><img src="sheet-img/Oct16_0.jpg" alt=""></span><div><b>bkm_designs</b><small>Instagram · Facebook · comments and DMs</small></div></div>
-              <div class="dmt" data-seq>
-                <div class="reply s"><span>Replied to your post</span><img src="sheet-img/Jan20_1.jpg" alt=""></div>
-                <p class="bub c s">Love this one. Do you do kitchens in Holmdel?</p>
-                <p class="bub b s">Thank you! Yes, we work all over New Jersey. Want our design team to call you?</p>
-                <p class="bub c s">Yes please</p>
-                <p class="bub b s">Done. What’s the best number?</p>
-              </div>
-            </div>
-          </div>
+          <div class="stage"><div class="dm"><div class="dmh"><span class="av"><img src="menu-img/Oct16_0.jpg" alt=""></span><div><b>bkm_designs</b><small>Instagram · Facebook · comments and messages</small></div></div><div class="dmt" data-seq><div class="reply s"><span>Replied to your post</span><img src="menu-img/Jan20_1.jpg" alt=""></div><p class="bub c s">Love this one. Do you do kitchens in New Jersey?</p><p class="bub b s">Thank you! Yes, we work all over the tri-state. Want the office to call you?</p><p class="bub c s">Yes please</p><p class="bub b s">Done. What’s the best number?</p></div></div></div>
           <div class="cbody">
             <div class="ctop"><h3>AI chat for Instagram and Facebook</h3></div>
-            <p class="what">Every DM and comment gets a real answer in seconds, at any hour.</p>
+            <p class="what">Every message and comment gets a real answer in seconds, at any hour.</p>
             <ul class="gets"><li>Works on @bkm_designs and your Facebook page</li><li>Answers the questions people always ask</li><li>Passes real buyers to your team</li></ul>
             <button class="add" type="button" id="add-social">Add to my list</button>
           </div>
         </article>
 
         <article class="card blue" data-id="phones" data-name="AI answering for the phones">
-          <div class="stage">
-            <div class="call">
-              <div class="callh">
-                <span class="ring"><svg viewBox="0 0 24 24" fill="none" stroke="#0F1830" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
-                <div><b>Call answered</b><small>7:42 PM · office closed</small></div>
-                <span class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
-              </div>
-              <div class="lines" data-seq>
-                <div class="ln s"><span class="lab">Caller</span>Are you open tomorrow? I want to look at granite.</div>
-                <div class="ln ai s"><span class="lab">BKM’s AI</span>We are. I can set a time for you to walk the yard. What’s your name?</div>
-                <div class="sent s">✓ Summary texted to the office</div>
-              </div>
-            </div>
-          </div>
+          <div class="stage"><div class="call"><div class="callh"><span class="ring"><svg viewBox="0 0 24 24" fill="none" stroke="#0F1830" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span><div><b>Call answered</b><small>7:42 PM · after hours</small></div><span class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span></div><div class="lines" data-seq><div class="ln s"><span class="lab">Caller</span>We’re redoing our kitchen. Can I come look at granite?</div><div class="ln ai s"><span class="lab">BKM’s AI</span>Yes, you can pick your own slab at our yard. I’ll have the office call you to set a time. What’s your name and number?</div><div class="sent s">✓ Summary texted to the office</div></div></div></div>
           <div class="cbody">
             <div class="ctop"><h3>AI answering for your phones</h3></div>
-            <p class="what">When the office is closed or every line is busy, the AI picks up. Your team still runs the day.</p>
+            <p class="what">When it’s after hours or every line is busy, the AI picks up. Your team still runs the day.</p>
             <ul class="gets"><li>Sounds natural and knows BKM</li><li>Takes a message or books a visit</li><li>Texts the office a summary of every call</li></ul>
             <button class="add" type="button" id="add-phones">Add to my list</button>
           </div>
         </article>
 
         <article class="card" data-id="booking" data-name="Automatic booking">
-          <div class="stage">
-            <div class="cal">
-              <div class="calh"><b>BKM visits this week</b><small>books itself</small></div>
-              <div class="grid5">
-                <span></span><span class="d">Mon</span><span class="d">Tue</span><span class="d">Wed</span><span class="d">Thu</span><span class="d">Fri</span>
-                <span class="t">10:00</span><span class="slot tk"></span><span class="slot"></span><span class="slot tk"></span><span class="slot"></span><span class="slot tk"></span>
-                <span class="t">1:00</span><span class="slot"></span><span class="slot tk"></span><span class="slot"></span><span class="slot tk"></span><span class="slot"></span>
-                <span class="t">4:00</span><span class="slot tk"></span><span class="slot"></span><span class="slot"></span><span class="slot new">Maria R.<br>Slab visit</span><span class="slot"></span>
-              </div>
-              <div class="sent">✓ Confirmation text sent · reminder set</div>
-            </div>
-          </div>
+          <div class="stage"><div class="cal"><div class="calh"><b>BKM visits this week</b><small>books itself</small></div><div class="grid5"><span></span><span class="d">Mon</span><span class="d">Tue</span><span class="d">Wed</span><span class="d">Thu</span><span class="d">Fri</span><span class="t">10:00</span><span class="slot tk"></span><span class="slot"></span><span class="slot tk"></span><span class="slot"></span><span class="slot tk"></span><span class="t">1:00</span><span class="slot"></span><span class="slot tk"></span><span class="slot"></span><span class="slot tk"></span><span class="slot"></span><span class="t">3:00</span><span class="slot tk"></span><span class="slot"></span><span class="slot"></span><span class="slot new">Maria R.<br>Slab visit</span><span class="slot"></span></div><div class="sent">✓ Confirmation text sent · reminder set</div></div></div>
           <div class="cbody">
             <div class="ctop"><h3>Automatic booking</h3></div>
-            <p class="what">Customers pick a time for a visit or a measure. It lands on your calendar with no phone tag.</p>
-            <ul class="gets"><li>Works from chat, DMs, calls and ads</li><li>Confirmation text right away</li><li>Reminder before the visit</li></ul>
+            <p class="what">Customers pick a time for a slab visit or a measure. It lands on your calendar with no phone tag.</p>
+            <ul class="gets"><li>Works from the chat, messages, calls and ads</li><li>They get a text to confirm</li><li>They get a reminder before the visit</li></ul>
             <button class="add" type="button" id="add-booking">Add to my list</button>
           </div>
         </article>
-
       </div>
     </section>
 
-    <!-- ===== Group 2 ===== -->
     <section class="group">
       <div class="ghead">
         <p class="eyebrow">Stay in front of them</p>
-        <h2>Your kitchens on their phone, every day.</h2>
+        <h2>Your kitchens on their phone, every week.</h2>
         <p>BKM’s work sells itself when people see it. This puts it in front of them without anyone at the shop having to remember to post.</p>
       </div>
       <div class="cards">
 
         <article class="card" data-id="autopost" data-name="Automatic posting to Instagram">
-          <div class="stage fit">
-            <div class="week">
-              <div class="calh"><b>This week on @bkm_designs</b><small>posts itself</small></div>
-              <div class="days">
-                <div class="day"><span class="d">MON</span><span class="ph"><img src="sheet-img/Jan20_0.jpg" alt=""></span><span class="tm">6:30 PM</span><span class="stt">Posted</span></div>
-                <div class="day"><span class="d">TUE</span><span class="ph"><img src="sheet-img/Nov06_1.jpg" alt=""></span><span class="tm">6:30 PM</span><span class="stt">Posted</span></div>
-                <div class="day"><span class="d">WED</span><span class="ph"><img src="sheet-img/Aug31_1.jpg" alt=""></span><span class="tm">6:30 PM</span><span class="stt">Posted</span></div>
-                <div class="day"><span class="d">THU</span><span class="ph"><img src="sheet-img/Nov13_1.jpg" alt=""></span><span class="tm">6:30 PM</span><span class="stt">Posted</span></div>
-                <div class="day q"><span class="d">FRI</span><span class="ph"><img src="sheet-img/Oct16_0.jpg" alt=""></span><span class="tm">6:30 PM</span><span class="stt">Ready</span></div>
-                <div class="day q"><span class="d">SAT</span><span class="ph"><img src="sheet-img/Nov06_0.jpg" alt=""></span><span class="tm">10:00 AM</span><span class="stt">Ready</span></div>
-                <div class="day q"><span class="d">SUN</span><span class="ph"><img src="sheet-img/Jan20_1.jpg" alt=""></span><span class="tm">10:00 AM</span><span class="stt">Ready</span></div>
-              </div>
-            </div>
-          </div>
+          <div class="stage fit"><div class="week"><div class="calh"><b>This week on @bkm_designs</b><small>posts itself</small></div><div class="days"><div class="day"><span class="d">MON</span><span class="ph"><img src="menu-img/Jan20_0.jpg" alt=""></span><span class="tm">6:30 PM</span><span class="stt">Posted</span></div><div class="day"><span class="d">TUE</span><span class="ph"><img src="menu-img/Nov06_1.jpg" alt=""></span><span class="tm">6:30 PM</span><span class="stt">Posted</span></div><div class="day"><span class="d">WED</span><span class="ph"><img src="menu-img/Oct16_0.jpg" alt=""></span><span class="tm">6:30 PM</span><span class="stt">Posted</span></div><div class="day"><span class="d">THU</span><span class="ph"><img src="menu-img/Nov13_1.jpg" alt=""></span><span class="tm">6:30 PM</span><span class="stt">Posted</span></div><div class="day q"><span class="d">FRI</span><span class="ph"><img src="menu-img/Aug31_1.jpg" alt=""></span><span class="tm">6:30 PM</span><span class="stt">Ready</span></div><div class="day q"><span class="d">SAT</span><span class="ph"><img src="menu-img/Oct23_0.jpg" alt=""></span><span class="tm">10:00 AM</span><span class="stt">Ready</span></div><div class="day q"><span class="d">SUN</span><span class="ph"><img src="menu-img/Jan20_1.jpg" alt=""></span><span class="tm">10:00 AM</span><span class="stt">Ready</span></div></div></div></div>
           <div class="cbody">
             <div class="ctop"><h3>Automatic posting to Instagram</h3></div>
             <p class="what">Posts go out on a set schedule. Nobody at the shop has to remember.</p>
@@ -454,61 +531,42 @@ button:disabled{opacity:.6;cursor:default}
         </article>
 
         <article class="card blue" data-id="posts30" data-name="30 days of posts">
-          <div class="stage"><div class="month" id="month" aria-label="A month of posts made from BKM job photos"></div></div>
+          <div class="stage"><div class="month" id="month" aria-label="A month of posts made from BKM’s own job photos"></div></div>
           <div class="cbody">
             <div class="ctop"><h3>30 days of posts</h3></div>
             <p class="what">A full month of posts made from BKM’s own job photos, written and ready to go.</p>
-            <ul class="gets"><li>30 posts with captions</li><li>Your kitchens, counters, closets and crew</li><li>You approve before anything posts</li></ul>
+            <ul class="gets"><li>30 posts with the words written for you</li><li>Kitchens, cabinets, countertops, bathrooms and the new custom closets</li><li>You approve before anything posts</li></ul>
             <button class="add" type="button" id="add-posts30">Add to my list</button>
           </div>
         </article>
 
         <article class="card blue" data-id="carousels" data-name="30 days of carousels">
-          <div class="stage">
-            <div class="caro" id="caro">
-              <div class="track">
-                <div class="slide"><img src="sheet-img/Jan20_1.jpg" alt=""><span class="lab">Swipe</span><b>5 things to know before you pick a countertop</b></div>
-                <div class="slide"><img src="sheet-img/Aug31_1.jpg" alt=""><span class="lab">1 of 5</span><b>Quartz or granite? Start with how you cook.</b></div>
-                <div class="slide"><img src="sheet-img/Nov13_1.jpg" alt=""><span class="lab">2 of 5</span><b>See the whole slab, not a small sample.</b></div>
-                <div class="slide"><img src="sheet-img/Oct16_0.jpg" alt=""><span class="lab">BKM · Staten Island</span><b>Come walk our two granite yards.</b></div>
-              </div>
-              <span class="count" id="caroCount">1 / 4</span>
-              <div class="dots" id="caroDots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
-            </div>
-          </div>
+          <div class="stage"><div class="caro" id="caro"><div class="track"><div class="slide"><img src="menu-img/Jan20_1.jpg" alt=""><span class="lab">Swipe</span><b>How a BKM kitchen comes together</b></div><div class="slide"><img src="menu-img/Aug31_1.jpg" alt=""><span class="lab">1 of 3</span><b>Pick your cabinets. Pick your slab.</b></div><div class="slide"><img src="menu-img/Nov06_1.jpg" alt=""><span class="lab">2 of 3</span><b>We measure. We build it. We cut the stone ourselves.</b></div><div class="slide"><img src="menu-img/Nov13_0.jpg" alt=""><span class="lab">3 of 3 · BKM · Staten Island</span><b>We deliver it and install it.</b></div></div><span class="count" id="caroCount">1 / 4</span><div class="dots" id="caroDots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div></div></div>
           <div class="cbody">
             <div class="ctop"><h3>30 days of carousels</h3></div>
-            <p class="what">Swipe-through posts that teach and sell: slab guides, before and afters, job walk-throughs.</p>
+            <p class="what">A carousel is a few photos in a row that people swipe through. Step by steps, close-ups, job walk-throughs.</p>
             <ul class="gets"><li>A month of carousels in BKM’s look</li><li>Made to be saved and shared</li><li>You approve before anything posts</li></ul>
             <button class="add" type="button" id="add-carousels">Add to my list</button>
           </div>
         </article>
 
         <article class="card" data-id="reels" data-name="Reels">
-          <div class="stage">
-            <div class="reels">
-              <div class="reel sm"><img src="sheet-img/Nov06_1.jpg" alt=""></div>
-              <div class="reel main"><img src="sheet-img/Aug31_0.jpg" alt=""><span class="play">REEL</span><div class="rcap"><small>bkm_designs</small>From slab to finished kitchen</div><div class="rbar"><i></i></div></div>
-              <div class="reel sm"><img src="sheet-img/Nov13_0.jpg" alt=""></div>
-            </div>
-          </div>
+          <div class="stage"><div class="reels"><div class="reel sm"><img src="menu-img/Nov06_0.jpg" alt=""></div><div class="reel main"><img src="menu-img/Aug31_0.jpg" alt=""><span class="play">REEL</span><div class="rcap"><small>bkm_designs</small>A BKM kitchen, up close</div><div class="rbar"><i></i></div></div><div class="reel sm"><img src="menu-img/Oct16_1.jpg" alt=""></div></div></div>
           <div class="cbody">
             <div class="ctop"><h3>Reels</h3><span class="tag">Premium</span></div>
-            <p class="what">Short vertical videos of your jobs. Video is how new people find a business on Instagram.</p>
-            <ul class="gets"><li>Cut from your real job footage</li><li>Captions and music added</li><li>Costs more, because video takes more work</li></ul>
+            <p class="what">Short videos of your jobs, the kind people watch on their phone. Video is how new people find a business on Instagram.</p>
+            <ul class="gets"><li>Made from your real job footage</li><li>Words and music added</li><li>Costs more, because video takes more work</li></ul>
             <button class="add" type="button" id="add-reels">Add to my list</button>
           </div>
         </article>
-
       </div>
     </section>
 
-    <!-- ===== Group 3 ===== -->
     <section class="group">
       <div class="ghead">
         <p class="eyebrow">Bring in new ones</p>
         <h2>Put BKM in front of people who don’t know you yet.</h2>
-        <p>Homeowners all over the tri-state are planning a kitchen right now. Ads show them yours.</p>
+        <p>Somewhere in the tri-state, a family is planning a new kitchen. Ads show them yours.</p>
       </div>
       <div class="cards">
         <article class="card wide" data-id="ads" data-name="Facebook and Instagram ads">
@@ -516,11 +574,11 @@ button:disabled{opacity:.6;cursor:default}
             <div class="adflow">
               <div class="ad">
                 <div class="hd"><i>BKM</i><div>Beautiful Kitchens and More<small>Sponsored</small></div></div>
-                <div class="im"><img src="sheet-img/Jan20_0.jpg" alt=""></div>
+                <div class="im"><img src="menu-img/Jan20_0.jpg" alt=""></div>
                 <div class="ft">See what your kitchen could look like<span>Get my design</span></div>
               </div>
               <div class="leadbox" data-seq>
-                <span class="lab s">New lead from this ad</span>
+                <span class="lab s">New customer from this ad</span>
                 <div class="row s"><span>Name</span><b>Maria R.</b></div>
                 <div class="row s"><span>Wants</span><b>Kitchen + countertops</b></div>
                 <div class="row s"><span>Town</span><b>Holmdel, NJ</b></div>
@@ -530,8 +588,8 @@ button:disabled{opacity:.6;cursor:default}
           </div>
           <div class="cbody">
             <div class="ctop"><h3>Facebook and Instagram ads</h3></div>
-            <p class="what">Ads that show BKM kitchens to homeowners across the tri-state. Every lead goes straight to the office.</p>
-            <ul class="gets"><li>We write and design the ads</li><li>You approve each ad before it runs</li><li>You set the ad budget. It goes to Meta, not to us</li></ul>
+            <p class="what">Ads that show BKM kitchens to homeowners across the tri-state. Everyone who’s interested goes straight to the office.</p>
+            <ul class="gets"><li>We write and design the ads</li><li>You approve each ad before it runs</li><li>You set the ad budget. It goes to Facebook, not to us</li></ul>
             <button class="add" type="button" id="add-ads">Add to my list</button>
           </div>
         </article>
@@ -546,7 +604,7 @@ button:disabled{opacity:.6;cursor:default}
     <div class="one-txt">
       <p class="eyebrow">One place for all of it</p>
       <h2>Whatever you pick lands in one BKM app.</h2>
-      <p>Chats, DMs, calls, bookings and ad leads show up in the same inbox, on the office computer and on your phone. Nothing gets lost between apps.</p>
+      <p>Chats, messages, calls, bookings and ad leads show up in the same inbox, on the office computer and on your phone. Nothing gets lost between apps.</p>
       <div class="proof">
         <div><b>25 sec</b><span>Our own median time to answer a new lead. It was 21 minutes before these tools.</span></div>
         <div><b>4.9 stars</b><span>Across 330+ Google reviews at the home-service company we run in New Jersey.</span></div>
@@ -554,8 +612,8 @@ button:disabled{opacity:.6;cursor:default}
     </div>
     <div class="inbox" aria-label="Example BKM inbox">
       <div class="ih">BKM inbox <small><i></i>EXAMPLE</small></div>
-      <div class="item"><span class="ch">Website chat</span><p><b>Dan K.</b> · quartz in Brooklyn, booked Thu 4:00</p><time>2 min</time></div>
-      <div class="item"><span class="ch">Instagram DM</span><p><b>Lisa M.</b> · kitchen in Holmdel, wants a call</p><time>14 min</time></div>
+      <div class="item"><span class="ch">Website chat</span><p><b>Dan K.</b> · countertops, wants a call</p><time>2 min</time></div>
+      <div class="item"><span class="ch">Instagram</span><p><b>Lisa M.</b> · kitchen in New Jersey, wants a call</p><time>14 min</time></div>
       <div class="item"><span class="ch">Phone call</span><p><b>Tony V.</b> · called 7:42 PM about granite</p><time>1 hr</time></div>
       <div class="item"><span class="ch">Ad lead</span><p><b>Maria R.</b> · kitchen + countertops</p><time>2 hr</time></div>
       <div class="item"><span class="ch">Booking</span><p><b>Sam P.</b> · measure, Friday 10:00</p><time>3 hr</time></div>
@@ -567,11 +625,11 @@ button:disabled{opacity:.6;cursor:default}
   <div class="wrap list-grid">
     <div class="list-txt">
       <p class="eyebrow">Your list</p>
-      <h2>Send Scott what you picked.</h2>
+      <h2>Pick what BKM turns on first.</h2>
       <p>You don’t have to take all nine. Start with what fits BKM today.</p>
       <ol class="next">
         <li><span>Tap Send. Scott gets your picks right away.</span></li>
-        <li><span>We do one Zoom with your office team to learn how BKM runs.</span></li>
+        <li><span>We do one Zoom with the family and the office to learn how BKM runs.</span></li>
         <li><span>You get one price for exactly what you picked.</span></li>
         <li><span>We build it. You approve it before anything goes live.</span></li>
       </ol>
@@ -601,7 +659,7 @@ button:disabled{opacity:.6;cursor:default}
   </div>
 </section>
 
-<footer class="foot"><div class="wrap">Fix Your Brand · Made for Beautiful Kitchens and More, Staten Island, NY · Photos are BKM’s own work. Customer names, messages and times on this page are examples.</div></footer>
+<footer class="foot"><div class="wrap">Fix Your Brand · Made for Beautiful Kitchens and More, Staten Island, NY · Every photo is BKM’s own work, from @bkm_designs. Customer names, messages and times on this page are examples.</div></footer>
 
 <div class="tray" role="region" aria-label="Your list">
   <div class="wrap">
@@ -664,6 +722,7 @@ button:disabled{opacity:.6;cursor:default}
     var body={access_key:KEY, subject:CLIENT+' picked '+current.length+' tool'+(current.length>1?'s':'')+' ('+name+')', from_name:CLIENT+' tool menu',
       Client:CLIENT, Name:name, Phone:val('fPhone')||'(not given)',
       Picks:current.map(function(n,i){return (i+1)+'. '+n;}).join('\n'), Note:val('fNote')||'(none)', Sent:new Date().toLocaleString()};
+    var bizSel=document.getElementById('fBiz'); if(bizSel) body['Start with']=bizSel.value;
     fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(body)})
       .then(function(r){ return r.json().catch(function(){return {};}).then(function(j){ return {ok:r.ok,j:j}; }); })
       .then(function(res){ if(res.ok&&res.j&&res.j.success===true){ sendBox.hidden=true; sentBox.hidden=false; } else { throw new Error('send'); } })
@@ -673,17 +732,39 @@ button:disabled{opacity:.6;cursor:default}
   document.getElementById('againBtn').addEventListener('click',function(){ sentBox.hidden=true; sendBox.hidden=false; });
   render();
 
-  /* 30 days: thirty different crops of BKM's own photos */
-  var P=['Jan20_0','Nov13_0','Oct16_0','Aug31_0','Nov06_0','Jan20_1','Nov13_1','Aug31_1','Nov06_1'];
+  /* 30 days: thirty different crops of the photos */
+  var P=['Jan20_0','Nov13_0','Oct16_0','Aug31_0','Nov06_0','Jan20_1','Nov13_1','Aug31_1','Nov06_1','Oct16_1','Oct23_0'];
   var pos=['20% 30%','70% 60%','45% 80%','80% 25%','30% 65%','55% 45%','15% 75%'];
   var month=document.getElementById('month');
   for(var i=0;i<30;i++){
     var d=document.createElement('div'), n=document.createElement('span');
-    d.style.backgroundImage='url(sheet-img/'+P[i%9]+'.jpg)';
-    d.style.backgroundSize=(i%3?'260%':'150%');
+    d.style.backgroundImage='url(menu-img/'+P[i%11]+'.jpg)';
+    d.style.backgroundSize=(i<11?'cover':(i<22?'190%':'260%'));
     d.style.backgroundPosition=pos[(i*3)%7];
     n.textContent=i+1; d.appendChild(n); month.appendChild(d);
   }
+
+  /* blueprint city blocks, drawn the same way every time */
+  [].slice.call(document.querySelectorAll('svg[data-sky]')).forEach(function(el){
+    var a=el.getAttribute('data-sky').split(','), seed=+a[0], W=+a[1], H=+a[2], o='', x=10, base=H-28, g;
+    function r(){ seed=(seed*9301+49297)%233280; return seed/233280; }
+    o+='<rect width="'+W+'" height="'+H+'" fill="#18244A"/>';
+    for(g=0;g<=W;g+=40) o+='<line x1="'+g+'" y1="0" x2="'+g+'" y2="'+H+'" stroke="#22305C" stroke-width="1"/>';
+    for(g=0;g<=H;g+=40) o+='<line x1="0" y1="'+g+'" x2="'+W+'" y2="'+g+'" stroke="#22305C" stroke-width="1"/>';
+    while(x<W-40){
+      var w=46+Math.floor(r()*64), h=Math.floor((H-60)*(.3+r()*.65)); if(x+w>W-10) w=W-10-x;
+      var top=base-h;
+      o+='<rect x="'+x+'" y="'+top+'" width="'+w+'" height="'+h+'" fill="#0F1830" stroke="#5B9CFF" stroke-width="2"/>';
+      var cols=Math.max(1,Math.floor((w-10)/16)), rows=Math.max(1,Math.floor((h-14)/22)), off=(w-(cols*16-6))/2;
+      for(var j=0;j<rows;j++) for(var i2=0;i2<cols;i2++){
+        var lit=r()<.2, f=lit?(r()<.5?'#F0548E':'#5B9CFF'):'#18244A';
+        o+='<rect x="'+(x+off+i2*16)+'" y="'+(top+10+j*22)+'" width="10" height="13" fill="'+f+'" stroke="#2C3B6B" stroke-width="1"/>';
+      }
+      x+=w+(r()<.35?12:0);
+    }
+    o+='<line x1="0" y1="'+base+'" x2="'+W+'" y2="'+base+'" stroke="#F6F4EF" stroke-width="2"/>';
+    el.setAttribute('viewBox','0 0 '+W+' '+H); el.innerHTML=o;
+  });
 
   var motionOK=!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
 
@@ -710,6 +791,49 @@ button:disabled{opacity:.6;cursor:default}
         else if(!e.isIntersecting&&run){ run=false; clearTimeout(t); steps.forEach(function(s){s.classList.remove('hid');}); }
       }); },{threshold:.55}).observe(box);
     });
+  }
+  /* reduced motion: hold the videos on their first picture */
+  if(!motionOK){ [].slice.call(document.querySelectorAll('video')).forEach(function(v){ v.removeAttribute('autoplay'); try{v.pause();}catch(e){} }); }
+
+  /* cover: fade through BKM's own kitchens */
+  var sl=[].slice.call(document.querySelectorAll('#slides img')), si=0;
+  if(motionOK&&sl.length>1) setInterval(function(){ sl[si].classList.remove('on'); si=(si+1)%sl.length; sl[si].classList.add('on'); },5200);
+
+  /* live chat: real AI when the viewer has it, pre-written answers when not */
+  var FACTS='You are the AI assistant for Beautiful Kitchens and More (BKM), answering a customer on chat. Facts you may use: family owned for 30 years; the shop is on Industrial Loop in Staten Island, New York; works all over the tri-state area; customers are homeowners, contractors and builders; services are custom kitchens, custom cabinetry, countertops that BKM fabricates and installs itself, laminate countertops, bathrooms, and new custom closets; BKM helps pick cabinets and materials, measures, delivers and installs; BKM has two granite yards where customers pick their own slab; BKM makes 3D design layouts of the kitchen. Office phone 718-356-3313. Instagram @bkm_designs. Rules: reply in 1 to 3 short plain sentences. Be friendly and direct. Never give prices, hours, timelines or guarantees. If you do not know, say the office will follow up and ask for a name and best phone number. For quotes or visits, ask for a name, the town and a phone number. Do not use markdown.';
+  var thread=document.getElementById('lcThread'), badge=document.getElementById('lcBadge'), lcNote=document.getElementById('lcNote'),
+      input=document.getElementById('askInput'), sendBtn=document.getElementById('lcSend'), sampleFn=null, hist=[], busy=false;
+  function bubble(cls,text){ var p=document.createElement('p'); p.className=cls; p.textContent=text; thread.appendChild(p); thread.scrollTop=thread.scrollHeight; return p; }
+  function canned(q){
+    q=q.toLowerCase();
+    if(/price|cost|how much|quote|estimate|budget/.test(q)) return 'I can’t give a price here, but I can get you to the right person at BKM today. What’s your name, your town and the best number to reach you?';
+    if(/hour|open|close|when|today|tomorrow|saturday|sunday|weekend/.test(q)) return 'I’ll have the office confirm a time with you. What’s your name and the best number to reach you?';
+    if(/slab|granite|yard|stone|see|visit|showroom|come/.test(q)) return 'Yes. BKM has two granite yards where you can pick your own slab. Want the office to set up a time? What’s your name and best number?';
+    if(/counter|fabricat|laminate|install|make your own/.test(q)) return 'Yes. BKM fabricates and installs its own countertops, and does custom laminate too. Want to come pick out a slab?';
+    if(/closet/.test(q)) return 'Yes, custom closets are new at BKM. Want someone from the office to call you about yours?';
+    if(/bath|vanit/.test(q)) return 'Yes, BKM does bathrooms too. What are you looking to do?';
+    if(/jersey|nj|brooklyn|manhattan|queens|bronx|long island|area|where|locat|address|staten|town|serve|far/.test(q)) return 'The shop is on Industrial Loop in Staten Island, and BKM works all over the tri-state. Where is your project?';
+    if(/design|3d|layout|drawing|plan/.test(q)) return 'Yes. BKM can make a 3D layout so you can see your kitchen before it’s built. Want the office to reach out?';
+    if(/contractor|builder|trade/.test(q)) return 'Yes. BKM works with homeowners, contractors and builders. What’s the job?';
+    if(/kitchen|cabinet|remodel|custom|what do you/.test(q)) return 'BKM builds custom kitchens and cabinets, and cuts and installs its own countertops. We help you pick, then we measure, deliver and install. What are you planning?';
+    return 'Thanks for reaching out to Beautiful Kitchens and More. Let me get that to the right person in the office. What’s your name and the best number to reach you?';
+  }
+  function done(){ busy=false; sendBtn.disabled=false; }
+  function ask(q){
+    q=(q||'').trim(); if(!q||busy) return;
+    busy=true; sendBtn.disabled=true; bubble('c',q);
+    var el=bubble('b','…');
+    function fallback(){ el.textContent=canned(q); thread.scrollTop=thread.scrollHeight; done(); }
+    if(!sampleFn){ setTimeout(fallback,650); return; }
+    var prompt=FACTS+'\n\nConversation so far:\n'+hist.join('\n')+'\nCustomer: '+q+'\n\nWrite only the assistant’s next reply.';
+    sampleFn(prompt,{cache:false,modelTier:'quick',onText:function(e){ if(e&&e.text){ el.textContent=e.text; thread.scrollTop=thread.scrollHeight; } }})
+      .then(function(r){ var t=(r&&r.text||'').trim(); if(!t){ fallback(); return; } el.textContent=t; hist.push('Customer: '+q,'Assistant: '+t); if(hist.length>12) hist=hist.slice(-12); done(); })
+      .catch(function(){ sampleFn=null; badge.textContent='DEMO'; lcNote.hidden=false; fallback(); });
+  }
+  document.getElementById('lcForm').addEventListener('submit',function(e){ e.preventDefault(); var q=input.value; input.value=''; ask(q); });
+  [].slice.call(document.querySelectorAll('#lcQuick button')).forEach(function(b){ b.addEventListener('click',function(){ ask(b.textContent); }); });
+  if(window.claude&&typeof claude.use==='function'){
+    claude.use('sample').then(function(fn){ if(fn){ sampleFn=fn; badge.textContent='LIVE AI'; lcNote.hidden=true; } }).catch(function(){});
   }
 })();
 </script>
