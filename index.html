@@ -1,0 +1,718 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>BKM Tool Menu</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap">
+<style>
+/* Layout: a showroom menu. Navy cover with BKM's kitchens, then a cream floor of nine capped cards (each with a small working example on a navy stage), a navy "one app" band, and one gradient close where the picked list lives. Fix Your Brand colors, one committed look on purpose. */
+:root{
+  --navy:#0F1830; --navy-2:#18244A; --navy-3:#22305C; --line-d:#2C3B6B;
+  --cream:#F6F4EF; --white:#FFFFFF; --rule:#E2DCCF;
+  --ink:#0F1830; --body:#4A5568; --body-d:#BCC6DC; --muted-d:#8E9AB5;
+  --pink:#F0548E; --pink-t:#C2185B; --blue:#3D7BFF; --blue-t:#2457C5; --blue-l:#5B9CFF;
+  --violet:#6A3FC8; --blush:#FFE3EE; --ok:#3DDC97;
+  --display:"Space Grotesk", Arial, sans-serif; --sans:"DM Sans", Arial, sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.5;-webkit-font-smoothing:antialiased;padding-bottom:92px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(20px, env(safe-area-inset-left, 0px));padding-right:max(20px, env(safe-area-inset-right, 0px))}
+h1,h2,h3{font-family:var(--display);font-weight:700;margin:0;text-wrap:balance;letter-spacing:-.015em}
+h1{font-size:clamp(44px,6.4vw,84px);line-height:1}
+h2{font-size:clamp(32px,4vw,50px);line-height:1.05}
+h3{font-size:27px;line-height:1.15}
+p{margin:0}
+.eyebrow{font-size:14px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--pink-t)}
+a:focus-visible,button:focus-visible,textarea:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+
+/* ---------- Cover ---------- */
+.cover{background:var(--navy);color:var(--cream)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px 24px;flex-wrap:wrap;padding-block:26px}
+.mark{font-weight:700;font-size:15px;letter-spacing:.3em;color:var(--pink)}
+.for{font-size:15px;color:var(--body-d)}
+.cover-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:56px;align-items:center;padding-block:36px 84px}
+.cover-txt{display:flex;flex-direction:column;gap:24px;min-width:0}
+.cover .eyebrow{color:var(--pink)}
+.cover h1 em{font-style:normal;color:var(--pink)}
+.cover .lead{font-size:clamp(19px,2vw,23px);color:var(--body-d);max-width:34em}
+.cover .lead b{color:var(--cream)}
+.go{display:flex;gap:14px 22px;align-items:center;flex-wrap:wrap}
+.btn{font:700 18px var(--sans);background:var(--pink);color:var(--navy);border:0;border-radius:999px;padding:16px 28px;cursor:pointer;text-decoration:none;display:inline-block;transition:transform .15s, filter .15s}
+.btn:hover{filter:brightness(1.07);transform:translateY(-1px)}
+.go span{font-size:16px;color:var(--muted-d)}
+.shots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:start}
+.shots figure{margin:0;border-radius:20px;overflow:hidden;aspect-ratio:3/4.6;background:var(--navy-2)}
+.shots figure:nth-child(1){margin-top:56px}
+.shots figure:nth-child(3){margin-top:112px}
+.shots img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* ---------- Menu ---------- */
+.menu{padding-block:80px 30px}
+.group{padding-bottom:70px}
+.ghead{display:flex;flex-direction:column;gap:12px;margin-bottom:34px;max-width:46em}
+.ghead p:last-child{font-size:20px;color:var(--body)}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.card{background:var(--white);border:1px solid var(--rule);border-top:8px solid var(--pink);border-radius:20px;display:flex;flex-direction:column;min-width:0;overflow:hidden}
+.card.blue{border-top-color:var(--blue)}
+.card.on{border-color:var(--navy);border-top-color:var(--navy)}
+.cbody{padding:24px 26px 26px;display:flex;flex-direction:column;gap:14px;flex:1}
+.ctop{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.tag{flex:none;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--navy);color:var(--cream);border-radius:999px;padding:6px 12px;margin-top:4px}
+.what{color:var(--body);font-size:18px}
+.gets{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;font-size:17px;color:var(--ink)}
+.gets li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;align-items:start}
+.gets li::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--pink);margin-top:9px;justify-self:center}
+.card.blue .gets li::before{background:var(--blue)}
+.add{margin-top:auto;align-self:flex-start;font:700 17px var(--sans);background:var(--pink);color:var(--navy);border:0;border-radius:999px;padding:14px 24px;cursor:pointer;transition:transform .15s}
+.add:hover{transform:translateY(-1px)}
+.card.on .add{background:var(--navy);color:var(--cream)}
+.card.wide{grid-column:1 / -1;flex-direction:row}
+.card.wide .stage{flex:1.15;margin:20px 0 20px 20px}
+.card.wide .cbody{flex:1;justify-content:center}
+
+/* ---------- Stages: small working examples ---------- */
+.stage{position:relative;height:350px;margin:20px 20px 0;border-radius:14px;overflow:hidden;background:var(--navy);color:var(--cream);font-size:15px;line-height:1.35;min-width:0}
+.stage > img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.s{transition:opacity .4s ease, transform .4s ease}
+.s.hid{opacity:0;transform:translateY(8px)}
+.bub{max-width:86%;padding:9px 13px;border-radius:16px}
+.lab{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+
+/* web chat */
+.urlbar{position:absolute;left:0;right:0;top:0;background:rgba(15,24,48,.86);padding:9px 12px;display:flex;gap:6px;align-items:center;font-size:12px;color:var(--body-d)}
+.urlbar i{width:9px;height:9px;border-radius:50%;background:var(--line-d)}
+.urlbar span{margin-left:8px;background:var(--navy-2);border-radius:6px;padding:3px 10px;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.widget{position:absolute;right:14px;bottom:14px;width:min(270px,calc(100% - 28px));background:var(--white);color:var(--ink);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.widget .wh{background:var(--navy);color:var(--cream);padding:10px 14px;font-weight:700;display:flex;align-items:center;gap:8px}
+.widget .wh i{width:9px;height:9px;border-radius:50%;background:var(--ok)}
+.widget .wt{padding:12px;display:flex;flex-direction:column;gap:7px}
+.widget .c{align-self:flex-end;background:var(--navy);color:var(--cream);border-bottom-right-radius:5px}
+.widget .b{align-self:flex-start;background:var(--cream);border-bottom-left-radius:5px}
+
+/* DMs */
+.dm{position:absolute;inset:0;display:flex;flex-direction:column}
+.dmh{display:flex;align-items:center;gap:10px;padding:13px 16px;border-bottom:1px solid var(--line-d)}
+.dmh .av{width:36px;height:36px;border-radius:50%;border:2px solid var(--pink);overflow:hidden;flex:none}
+.dmh .av img{width:100%;height:100%;object-fit:cover;display:block}
+.dmh b{font-size:15px}
+.dmh small{display:block;font-size:12px;color:var(--muted-d)}
+.dmt{flex:1;min-height:0;padding:14px 16px;display:flex;flex-direction:column;gap:8px;justify-content:flex-end}
+.dmt .c{align-self:flex-end;background:var(--blue);color:#fff;border-bottom-right-radius:5px}
+.dmt .b{align-self:flex-start;background:var(--navy-3);border-bottom-left-radius:5px}
+.reply{align-self:flex-end;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted-d)}
+.reply img{width:46px;height:46px;border-radius:8px;object-fit:cover}
+
+/* phone */
+.call{position:absolute;inset:0;padding:18px;display:flex;flex-direction:column;gap:12px}
+.callh{display:flex;align-items:center;gap:14px}
+.ring{width:54px;height:54px;border-radius:50%;background:var(--pink);flex:none;display:grid;place-items:center;animation:ring 1.8s infinite}
+.ring svg{width:26px;height:26px}
+@keyframes ring{0%{box-shadow:0 0 0 0 rgba(240,84,142,.55)}100%{box-shadow:0 0 0 18px rgba(240,84,142,0)}}
+.callh b{font:700 19px var(--display);display:block}
+.callh small{font-size:13px;color:var(--muted-d)}
+.wave{margin-left:auto;display:flex;align-items:center;gap:3px;height:34px}
+.wave i{width:4px;border-radius:4px;background:var(--blue-l);height:30%;animation:wv 1s ease-in-out infinite}
+.wave i:nth-child(2){animation-delay:.1s}.wave i:nth-child(3){animation-delay:.25s}.wave i:nth-child(4){animation-delay:.4s}.wave i:nth-child(5){animation-delay:.15s}.wave i:nth-child(6){animation-delay:.3s}
+@keyframes wv{50%{height:100%}}
+.lines{display:flex;flex-direction:column;gap:8px;flex:1;justify-content:center}
+.ln{background:var(--navy-2);border-radius:12px;padding:10px 13px}
+.ln .lab{display:block;color:var(--muted-d);margin-bottom:2px}
+.ln.ai .lab{color:var(--pink)}
+.sent{display:flex;align-items:center;gap:8px;background:rgba(61,220,151,.14);color:var(--ok);border-radius:999px;padding:8px 14px;font-weight:700;font-size:14px;align-self:flex-start}
+
+/* booking */
+.cal{position:absolute;inset:0;padding:18px;display:flex;flex-direction:column;gap:12px}
+.calh{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.calh b{font:700 18px var(--display)}
+.calh small{color:var(--muted-d);font-size:13px}
+.grid5{display:grid;grid-template-columns:44px repeat(5,minmax(0,1fr));gap:6px;flex:1;font-variant-numeric:tabular-nums}
+.grid5 .d{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-d);text-align:center;align-self:end}
+.grid5 .t{font-size:12px;color:var(--muted-d);align-self:center}
+.slot{border-radius:9px;border:1px dashed var(--line-d);min-height:44px}
+.slot.tk{border:0;background:var(--navy-3)}
+.slot.new{border:0;background:var(--pink);color:var(--navy);font-weight:700;font-size:12px;line-height:1.15;padding:6px;display:flex;align-items:center;animation:glow 2s infinite}
+@keyframes glow{50%{box-shadow:0 0 0 6px rgba(240,84,142,.22)}}
+
+/* auto posting */
+.week{position:absolute;inset:0;padding:18px;display:flex;flex-direction:column;gap:14px}
+.days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:7px;flex:1;align-content:center}
+.day{display:flex;flex-direction:column;gap:6px;align-items:center;min-width:0}
+.day .d{font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--muted-d)}
+.day .ph{width:100%;aspect-ratio:9/14;border-radius:9px;overflow:hidden;background:var(--navy-2)}
+.day .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.day .tm{font-size:11px;color:var(--body-d);font-variant-numeric:tabular-nums;white-space:nowrap}
+.day .stt{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:3px 0;width:100%;text-align:center;background:rgba(61,220,151,.16);color:var(--ok)}
+.day.q .stt{background:var(--navy-3);color:var(--body-d)}
+.day.q .ph{opacity:.55}
+
+/* 30 days */
+.month{position:absolute;inset:0;padding:14px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:repeat(5,minmax(0,1fr));gap:6px}
+.month div{position:relative;border-radius:8px;background-color:var(--navy-2);background-repeat:no-repeat;overflow:hidden}
+.month span{position:absolute;left:5px;top:4px;font:700 11px var(--sans);color:#fff;background:rgba(15,24,48,.72);border-radius:999px;padding:1px 6px;font-variant-numeric:tabular-nums}
+
+/* carousel */
+.caro{position:absolute;inset:0;overflow:hidden}
+.track{display:flex;height:100%;transition:transform .7s cubic-bezier(.6,0,.2,1)}
+.slide{position:relative;flex:0 0 100%;min-width:0;display:flex;flex-direction:column;justify-content:flex-end;padding:22px 22px 46px}
+.slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.slide::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(15,24,48,.94) 0%,rgba(15,24,48,.55) 55%,rgba(15,24,48,.15) 100%)}
+.slide > *:not(img){position:relative;z-index:1}
+.slide .lab{color:var(--pink);margin-bottom:8px}
+.slide b{font:700 clamp(22px,2.6vw,29px)/1.08 var(--display);max-width:16em}
+.dots{position:absolute;left:0;right:0;bottom:16px;z-index:2;display:flex;justify-content:center;gap:7px}
+.dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.35);transition:background .3s, width .3s}
+.dots i.on{background:var(--pink);width:22px;border-radius:8px}
+.count{position:absolute;right:14px;top:14px;z-index:2;background:rgba(15,24,48,.78);border-radius:999px;padding:4px 11px;font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}
+
+/* reels */
+.reels{position:absolute;inset:0;display:flex;justify-content:center;align-items:center;gap:14px;padding:16px}
+.reel{position:relative;height:100%;aspect-ratio:9/16;border-radius:16px;overflow:hidden;background:var(--navy-2);flex:none}
+.reel.sm{height:72%;opacity:.45}
+.reel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.reel.main img{animation:pan 9s ease-in-out infinite alternate}
+@keyframes pan{from{transform:scale(1.35) translate(6%,4%)}to{transform:scale(1.05) translate(-2%,-2%)}}
+.reel.main::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(15,24,48,.9),transparent 45%)}
+.rcap{position:absolute;left:12px;right:12px;bottom:22px;z-index:1;font:700 16px/1.15 var(--display)}
+.rcap small{display:block;font:500 11px var(--sans);color:var(--body-d);margin-bottom:4px}
+.rbar{position:absolute;left:12px;right:12px;bottom:10px;height:3px;border-radius:3px;background:rgba(255,255,255,.3);z-index:1;overflow:hidden}
+.rbar i{display:block;height:100%;width:35%;background:var(--pink);animation:prog 9s linear infinite}
+@keyframes prog{from{width:0}to{width:100%}}
+.play{position:absolute;left:10px;top:10px;z-index:1;background:rgba(15,24,48,.75);border-radius:999px;padding:4px 10px;font-size:11px;font-weight:700;letter-spacing:.1em}
+
+/* ads */
+.adflow{position:absolute;inset:0;padding:16px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:center}
+.ad{background:var(--white);color:var(--ink);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;height:100%;min-height:0}
+.ad .hd{display:flex;gap:9px;align-items:center;padding:9px 12px;font-size:13px;font-weight:700}
+.ad .hd i{width:28px;height:28px;border-radius:50%;background:var(--navy);color:var(--cream);display:grid;place-items:center;font:700 9px var(--display);font-style:normal;flex:none}
+.ad .hd small{display:block;font-weight:400;color:var(--body);font-size:11px}
+.ad .im{position:relative;flex:1;min-height:0}
+.ad .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ad .ft{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;font:700 14px/1.15 var(--display)}
+.ad .ft span{flex:none;background:var(--blue-t);color:#fff;border-radius:7px;padding:7px 11px;font:700 12px var(--sans);white-space:nowrap}
+.leadbox{display:flex;flex-direction:column;gap:9px;min-width:0}
+.leadbox .lab{color:var(--pink)}
+.row{background:var(--navy-2);border-radius:11px;padding:9px 12px;display:flex;justify-content:space-between;gap:10px;font-size:14px}
+.row span{color:var(--muted-d);flex:none}
+.row b{text-align:right;min-width:0}
+
+/* ---------- One app band ---------- */
+.one{background:var(--navy);color:var(--cream);padding-block:84px}
+.one .eyebrow{color:var(--pink)}
+.one-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:center}
+.one-txt{display:flex;flex-direction:column;gap:20px;min-width:0}
+.one-txt p{color:var(--body-d);font-size:20px;max-width:30em}
+.proof{display:flex;flex-direction:column;gap:14px;margin-top:10px;padding-top:24px;border-top:1px solid var(--line-d)}
+.proof div{display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;align-items:baseline}
+.proof b{font:700 34px var(--display);color:var(--cream);font-variant-numeric:tabular-nums;white-space:nowrap}
+.proof span{color:var(--body-d);font-size:17px}
+.inbox{background:var(--navy-2);border:1px solid var(--line-d);border-radius:20px;padding:10px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.inbox .ih{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px 6px;font:700 18px var(--display)}
+.inbox .ih small{font:700 12px var(--sans);letter-spacing:.14em;color:var(--ok);display:flex;align-items:center;gap:8px}
+.inbox .ih small i{width:9px;height:9px;border-radius:50%;background:var(--ok)}
+.item{background:var(--navy);border-radius:13px;padding:13px 15px;display:grid;grid-template-columns:118px minmax(0,1fr) auto;gap:14px;align-items:center;font-size:16px}
+.item .ch{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);background:var(--pink);border-radius:999px;padding:5px 0;text-align:center}
+.item:nth-child(odd) .ch{background:var(--blue-l)}
+.item p{min-width:0;color:var(--body-d)}
+.item p b{color:var(--cream);font-weight:700}
+.item time{font-size:13px;color:var(--muted-d);white-space:nowrap}
+
+/* ---------- Your list ---------- */
+.list{background:linear-gradient(135deg,#C2185B 0%,#6A3FC8 55%,#2457C5 100%);color:#fff;padding-block:84px}
+.list .eyebrow{color:var(--blush)}
+.list-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start}
+.list-txt{display:flex;flex-direction:column;gap:22px;min-width:0}
+.list-txt > p{color:var(--blush);font-size:20px;max-width:30em}
+.next{margin:0;padding:0;list-style:none;counter-reset:n;display:flex;flex-direction:column;gap:14px}
+.next li{counter-increment:n;display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;font-size:18px;color:#fff}
+.next li::before{content:counter(n);width:40px;height:40px;border-radius:50%;background:rgba(15,24,48,.35);border:1px solid rgba(255,255,255,.4);display:grid;place-items:center;font:700 18px var(--display)}
+.next li span{padding-top:6px}
+.ticket{background:var(--navy);border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.ticket h3{font-size:24px}
+.picked{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.picked li{background:var(--navy-2);border-radius:12px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:18px;font-weight:500}
+.picked button{flex:none;font:700 13px var(--sans);background:transparent;color:var(--body-d);border:1px solid var(--line-d);border-radius:999px;padding:6px 12px;cursor:pointer}
+.picked button:hover{border-color:var(--pink);color:var(--cream)}
+.none{border:1px dashed var(--line-d);border-radius:12px;padding:20px;color:var(--body-d);font-size:17px;text-align:center}
+#listText{width:100%;min-height:150px;resize:vertical;font:16px/1.45 var(--sans);color:var(--cream);background:var(--navy-2);border:1px solid var(--line-d);border-radius:12px;padding:14px}
+.acts{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.ghost{font:700 15px var(--sans);background:transparent;color:var(--cream);border:1px solid var(--line-d);border-radius:999px;padding:13px 18px;cursor:pointer}
+.ghost:hover{border-color:var(--blue-l)}
+.said{font-size:15px;color:var(--ok);font-weight:700;min-height:1.4em}
+.foot{padding-block:26px;color:var(--body);font-size:14px}
+
+/* ---------- Tray ---------- */
+.tray{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--navy);color:var(--cream);border-top:3px solid var(--pink);padding-bottom:env(safe-area-inset-bottom, 0px)}
+.tray .wrap{display:flex;align-items:center;gap:16px;padding-block:12px}
+.tcount{flex:none;font:700 19px var(--display);display:flex;align-items:center;gap:10px}
+.tcount b{min-width:38px;height:38px;border-radius:50%;background:var(--pink);color:var(--navy);display:grid;place-items:center;font-variant-numeric:tabular-nums}
+.chips{flex:1;min-width:0;display:flex;gap:8px;overflow:hidden;white-space:nowrap}
+.chips span{flex:none;font-size:14px;background:var(--navy-2);border:1px solid var(--line-d);border-radius:999px;padding:6px 12px}
+.chips em{font-style:normal;color:var(--muted-d);font-size:15px;overflow:hidden;text-overflow:ellipsis}
+.tray .btn{flex:none;font-size:16px;padding:12px 22px}
+
+@media (max-width:980px){
+  .cover-grid,.one-grid,.list-grid{grid-template-columns:1fr;gap:40px}
+  .cover-grid{padding-block:20px 60px}
+  .cards{grid-template-columns:1fr}
+  .card.wide{flex-direction:column}
+  .card.wide .stage{flex:none;margin:20px 20px 0}
+  .shots figure{aspect-ratio:3/4}
+  .shots figure:nth-child(1){margin-top:24px}
+  .shots figure:nth-child(3){margin-top:48px}
+}
+@media (max-width:620px){
+  body{font-size:17px}
+  .stage{margin:14px 14px 0;height:340px}
+  .card.wide .stage{margin:14px 14px 0;height:auto}
+  .adflow{position:static;grid-template-columns:1fr}
+  .ad{height:300px}
+  .cbody{padding:20px 18px 22px}
+  .chips{display:none}
+  .tray .wrap{justify-content:space-between}
+  .item{grid-template-columns:1fr auto;gap:6px 12px}
+  .item .ch{justify-self:start;padding:5px 12px}
+  .item p{grid-column:1 / -1;grid-row:2}
+  .reel.sm{display:none}
+  .reply{display:none}
+  .stage.fit{height:auto}
+  .stage.fit .week{position:static}
+  .day .tm{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ---------- send to Scott ---------- */
+.send{display:flex;flex-direction:column;gap:14px}
+.send label{display:flex;flex-direction:column;gap:6px;font-size:15px;font-weight:700;color:var(--body-d)}
+.send input,.send textarea{font:17px var(--sans);color:var(--cream);background:var(--navy-2);border:1px solid var(--line-d);border-radius:12px;padding:13px 14px;width:100%}
+.send textarea{resize:vertical;min-height:64px}
+.send input:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.said.bad{color:#FFB547}
+.sentbox{background:rgba(61,220,151,.12);border:1px solid var(--ok);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:10px}
+.sentbox h3{color:var(--ok);font-size:26px}
+.sentbox p{color:var(--cream);font-size:18px}
+.sentbox .ghost{align-self:flex-start}
+button:disabled{opacity:.6;cursor:default}
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="wrap top"><span class="mark">FIX YOUR BRAND</span><span class="for">Made for Frankie Esposito · Beautiful Kitchens and More</span></div>
+  <div class="wrap cover-grid">
+    <div class="cover-txt">
+      <p class="eyebrow">BKM · Staten Island · The tool menu</p>
+      <h1>Pick what BKM <em>turns on first.</em></h1>
+      <p class="lead">Nine tools for the next generation of BKM. <b>Each one works on its own.</b> Start with one. Add the rest when you’re ready. Tap the ones you want and your list builds at the bottom.</p>
+      <div class="go"><a class="btn" href="#menu">See the menu</a><span>9 tools · about 2 minutes to go through</span></div>
+    </div>
+    <div class="shots" aria-hidden="true">
+      <figure><img src="sheet-img/Jan20_0.jpg" alt=""></figure>
+      <figure><img src="sheet-img/Nov13_0.jpg" alt=""></figure>
+      <figure><img src="sheet-img/Aug31_0.jpg" alt=""></figure>
+    </div>
+  </div>
+</header>
+
+<main class="menu" id="menu">
+  <div class="wrap">
+
+    <!-- ===== Group 1 ===== -->
+    <section class="group">
+      <div class="ghead">
+        <p class="eyebrow">Answer every customer</p>
+        <h2>Somebody always answers, even at 9 at night.</h2>
+        <p>Your office already takes great care of people. These cover the hours and the places the office can’t be.</p>
+      </div>
+      <div class="cards">
+
+        <article class="card" data-id="webchat" data-name="AI chat on the BKM website">
+          <div class="stage">
+            <img class="bg" src="sheet-img/Nov13_0.jpg" alt="">
+            <div class="urlbar"><i></i><i></i><i></i><span>beautifulkitchensandmore.com</span></div>
+            <div class="widget">
+              <div class="wh"><i></i>Chat with BKM</div>
+              <div class="wt" data-seq>
+                <p class="bub c s">Do you do quartz in Brooklyn?</p>
+                <p class="bub b s">Yes. We fabricate and install all over the tri-state. Want to come see slabs?</p>
+                <p class="bub c s">Thursday after work?</p>
+                <p class="bub b s">Thursday at 4:00 is open. You’re booked.</p>
+              </div>
+            </div>
+          </div>
+          <div class="cbody">
+            <div class="ctop"><h3>AI chat on your website</h3></div>
+            <p class="what">A chat box on your site that answers questions day and night, in BKM’s voice.</p>
+            <ul class="gets"><li>Knows your services and your area</li><li>Gets their name, number and what they want</li><li>Hands the lead to the office</li></ul>
+            <button class="add" type="button" id="add-webchat">Add to my list</button>
+          </div>
+        </article>
+
+        <article class="card blue" data-id="social" data-name="AI chat for Instagram and Facebook">
+          <div class="stage">
+            <div class="dm">
+              <div class="dmh"><span class="av"><img src="sheet-img/Oct16_0.jpg" alt=""></span><div><b>bkm_designs</b><small>Instagram · Facebook · comments and DMs</small></div></div>
+              <div class="dmt" data-seq>
+                <div class="reply s"><span>Replied to your post</span><img src="sheet-img/Jan20_1.jpg" alt=""></div>
+                <p class="bub c s">Love this one. Do you do kitchens in Holmdel?</p>
+                <p class="bub b s">Thank you! Yes, we work all over New Jersey. Want our design team to call you?</p>
+                <p class="bub c s">Yes please</p>
+                <p class="bub b s">Done. What’s the best number?</p>
+              </div>
+            </div>
+          </div>
+          <div class="cbody">
+            <div class="ctop"><h3>AI chat for Instagram and Facebook</h3></div>
+            <p class="what">Every DM and comment gets a real answer in seconds, at any hour.</p>
+            <ul class="gets"><li>Works on @bkm_designs and your Facebook page</li><li>Answers the questions people always ask</li><li>Passes real buyers to your team</li></ul>
+            <button class="add" type="button" id="add-social">Add to my list</button>
+          </div>
+        </article>
+
+        <article class="card blue" data-id="phones" data-name="AI answering for the phones">
+          <div class="stage">
+            <div class="call">
+              <div class="callh">
+                <span class="ring"><svg viewBox="0 0 24 24" fill="none" stroke="#0F1830" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
+                <div><b>Call answered</b><small>7:42 PM · office closed</small></div>
+                <span class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+              </div>
+              <div class="lines" data-seq>
+                <div class="ln s"><span class="lab">Caller</span>Are you open tomorrow? I want to look at granite.</div>
+                <div class="ln ai s"><span class="lab">BKM’s AI</span>We are. I can set a time for you to walk the yard. What’s your name?</div>
+                <div class="sent s">✓ Summary texted to the office</div>
+              </div>
+            </div>
+          </div>
+          <div class="cbody">
+            <div class="ctop"><h3>AI answering for your phones</h3></div>
+            <p class="what">When the office is closed or every line is busy, the AI picks up. Your team still runs the day.</p>
+            <ul class="gets"><li>Sounds natural and knows BKM</li><li>Takes a message or books a visit</li><li>Texts the office a summary of every call</li></ul>
+            <button class="add" type="button" id="add-phones">Add to my list</button>
+          </div>
+        </article>
+
+        <article class="card" data-id="booking" data-name="Automatic booking">
+          <div class="stage">
+            <div class="cal">
+              <div class="calh"><b>BKM visits this week</b><small>books itself</small></div>
+              <div class="grid5">
+                <span></span><span class="d">Mon</span><span class="d">Tue</span><span class="d">Wed</span><span class="d">Thu</span><span class="d">Fri</span>
+                <span class="t">10:00</span><span class="slot tk"></span><span class="slot"></span><span class="slot tk"></span><span class="slot"></span><span class="slot tk"></span>
+                <span class="t">1:00</span><span class="slot"></span><span class="slot tk"></span><span class="slot"></span><span class="slot tk"></span><span class="slot"></span>
+                <span class="t">4:00</span><span class="slot tk"></span><span class="slot"></span><span class="slot"></span><span class="slot new">Maria R.<br>Slab visit</span><span class="slot"></span>
+              </div>
+              <div class="sent">✓ Confirmation text sent · reminder set</div>
+            </div>
+          </div>
+          <div class="cbody">
+            <div class="ctop"><h3>Automatic booking</h3></div>
+            <p class="what">Customers pick a time for a visit or a measure. It lands on your calendar with no phone tag.</p>
+            <ul class="gets"><li>Works from chat, DMs, calls and ads</li><li>Confirmation text right away</li><li>Reminder before the visit</li></ul>
+            <button class="add" type="button" id="add-booking">Add to my list</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== Group 2 ===== -->
+    <section class="group">
+      <div class="ghead">
+        <p class="eyebrow">Stay in front of them</p>
+        <h2>Your kitchens on their phone, every day.</h2>
+        <p>BKM’s work sells itself when people see it. This puts it in front of them without anyone at the shop having to remember to post.</p>
+      </div>
+      <div class="cards">
+
+        <article class="card" data-id="autopost" data-name="Automatic posting to Instagram">
+          <div class="stage fit">
+            <div class="week">
+              <div class="calh"><b>This week on @bkm_designs</b><small>posts itself</small></div>
+              <div class="days">
+                <div class="day"><span class="d">MON</span><span class="ph"><img src="sheet-img/Jan20_0.jpg" alt=""></span><span class="tm">6:30 PM</span><span class="stt">Posted</span></div>
+                <div class="day"><span class="d">TUE</span><span class="ph"><img src="sheet-img/Nov06_1.jpg" alt=""></span><span class="tm">6:30 PM</span><span class="stt">Posted</span></div>
+                <div class="day"><span class="d">WED</span><span class="ph"><img src="sheet-img/Aug31_1.jpg" alt=""></span><span class="tm">6:30 PM</span><span class="stt">Posted</span></div>
+                <div class="day"><span class="d">THU</span><span class="ph"><img src="sheet-img/Nov13_1.jpg" alt=""></span><span class="tm">6:30 PM</span><span class="stt">Posted</span></div>
+                <div class="day q"><span class="d">FRI</span><span class="ph"><img src="sheet-img/Oct16_0.jpg" alt=""></span><span class="tm">6:30 PM</span><span class="stt">Ready</span></div>
+                <div class="day q"><span class="d">SAT</span><span class="ph"><img src="sheet-img/Nov06_0.jpg" alt=""></span><span class="tm">10:00 AM</span><span class="stt">Ready</span></div>
+                <div class="day q"><span class="d">SUN</span><span class="ph"><img src="sheet-img/Jan20_1.jpg" alt=""></span><span class="tm">10:00 AM</span><span class="stt">Ready</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="cbody">
+            <div class="ctop"><h3>Automatic posting to Instagram</h3></div>
+            <p class="what">Posts go out on a set schedule. Nobody at the shop has to remember.</p>
+            <ul class="gets"><li>We load the posts, the system sends them</li><li>You see the calendar before it runs</li><li>Same days and times, every week</li></ul>
+            <button class="add" type="button" id="add-autopost">Add to my list</button>
+          </div>
+        </article>
+
+        <article class="card blue" data-id="posts30" data-name="30 days of posts">
+          <div class="stage"><div class="month" id="month" aria-label="A month of posts made from BKM job photos"></div></div>
+          <div class="cbody">
+            <div class="ctop"><h3>30 days of posts</h3></div>
+            <p class="what">A full month of posts made from BKM’s own job photos, written and ready to go.</p>
+            <ul class="gets"><li>30 posts with captions</li><li>Your kitchens, counters, closets and crew</li><li>You approve before anything posts</li></ul>
+            <button class="add" type="button" id="add-posts30">Add to my list</button>
+          </div>
+        </article>
+
+        <article class="card blue" data-id="carousels" data-name="30 days of carousels">
+          <div class="stage">
+            <div class="caro" id="caro">
+              <div class="track">
+                <div class="slide"><img src="sheet-img/Jan20_1.jpg" alt=""><span class="lab">Swipe</span><b>5 things to know before you pick a countertop</b></div>
+                <div class="slide"><img src="sheet-img/Aug31_1.jpg" alt=""><span class="lab">1 of 5</span><b>Quartz or granite? Start with how you cook.</b></div>
+                <div class="slide"><img src="sheet-img/Nov13_1.jpg" alt=""><span class="lab">2 of 5</span><b>See the whole slab, not a small sample.</b></div>
+                <div class="slide"><img src="sheet-img/Oct16_0.jpg" alt=""><span class="lab">BKM · Staten Island</span><b>Come walk our two granite yards.</b></div>
+              </div>
+              <span class="count" id="caroCount">1 / 4</span>
+              <div class="dots" id="caroDots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+            </div>
+          </div>
+          <div class="cbody">
+            <div class="ctop"><h3>30 days of carousels</h3></div>
+            <p class="what">Swipe-through posts that teach and sell: slab guides, before and afters, job walk-throughs.</p>
+            <ul class="gets"><li>A month of carousels in BKM’s look</li><li>Made to be saved and shared</li><li>You approve before anything posts</li></ul>
+            <button class="add" type="button" id="add-carousels">Add to my list</button>
+          </div>
+        </article>
+
+        <article class="card" data-id="reels" data-name="Reels">
+          <div class="stage">
+            <div class="reels">
+              <div class="reel sm"><img src="sheet-img/Nov06_1.jpg" alt=""></div>
+              <div class="reel main"><img src="sheet-img/Aug31_0.jpg" alt=""><span class="play">REEL</span><div class="rcap"><small>bkm_designs</small>From slab to finished kitchen</div><div class="rbar"><i></i></div></div>
+              <div class="reel sm"><img src="sheet-img/Nov13_0.jpg" alt=""></div>
+            </div>
+          </div>
+          <div class="cbody">
+            <div class="ctop"><h3>Reels</h3><span class="tag">Premium</span></div>
+            <p class="what">Short vertical videos of your jobs. Video is how new people find a business on Instagram.</p>
+            <ul class="gets"><li>Cut from your real job footage</li><li>Captions and music added</li><li>Costs more, because video takes more work</li></ul>
+            <button class="add" type="button" id="add-reels">Add to my list</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== Group 3 ===== -->
+    <section class="group">
+      <div class="ghead">
+        <p class="eyebrow">Bring in new ones</p>
+        <h2>Put BKM in front of people who don’t know you yet.</h2>
+        <p>Homeowners all over the tri-state are planning a kitchen right now. Ads show them yours.</p>
+      </div>
+      <div class="cards">
+        <article class="card wide" data-id="ads" data-name="Facebook and Instagram ads">
+          <div class="stage">
+            <div class="adflow">
+              <div class="ad">
+                <div class="hd"><i>BKM</i><div>Beautiful Kitchens and More<small>Sponsored</small></div></div>
+                <div class="im"><img src="sheet-img/Jan20_0.jpg" alt=""></div>
+                <div class="ft">See what your kitchen could look like<span>Get my design</span></div>
+              </div>
+              <div class="leadbox" data-seq>
+                <span class="lab s">New lead from this ad</span>
+                <div class="row s"><span>Name</span><b>Maria R.</b></div>
+                <div class="row s"><span>Wants</span><b>Kitchen + countertops</b></div>
+                <div class="row s"><span>Town</span><b>Holmdel, NJ</b></div>
+                <div class="sent s">✓ Sent to the office in seconds</div>
+              </div>
+            </div>
+          </div>
+          <div class="cbody">
+            <div class="ctop"><h3>Facebook and Instagram ads</h3></div>
+            <p class="what">Ads that show BKM kitchens to homeowners across the tri-state. Every lead goes straight to the office.</p>
+            <ul class="gets"><li>We write and design the ads</li><li>You approve each ad before it runs</li><li>You set the ad budget. It goes to Meta, not to us</li></ul>
+            <button class="add" type="button" id="add-ads">Add to my list</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<section class="one">
+  <div class="wrap one-grid">
+    <div class="one-txt">
+      <p class="eyebrow">One place for all of it</p>
+      <h2>Whatever you pick lands in one BKM app.</h2>
+      <p>Chats, DMs, calls, bookings and ad leads show up in the same inbox, on the office computer and on your phone. Nothing gets lost between apps.</p>
+      <div class="proof">
+        <div><b>25 sec</b><span>Our own median time to answer a new lead. It was 21 minutes before these tools.</span></div>
+        <div><b>4.9 stars</b><span>Across 330+ Google reviews at the home-service company we run in New Jersey.</span></div>
+      </div>
+    </div>
+    <div class="inbox" aria-label="Example BKM inbox">
+      <div class="ih">BKM inbox <small><i></i>EXAMPLE</small></div>
+      <div class="item"><span class="ch">Website chat</span><p><b>Dan K.</b> · quartz in Brooklyn, booked Thu 4:00</p><time>2 min</time></div>
+      <div class="item"><span class="ch">Instagram DM</span><p><b>Lisa M.</b> · kitchen in Holmdel, wants a call</p><time>14 min</time></div>
+      <div class="item"><span class="ch">Phone call</span><p><b>Tony V.</b> · called 7:42 PM about granite</p><time>1 hr</time></div>
+      <div class="item"><span class="ch">Ad lead</span><p><b>Maria R.</b> · kitchen + countertops</p><time>2 hr</time></div>
+      <div class="item"><span class="ch">Booking</span><p><b>Sam P.</b> · measure, Friday 10:00</p><time>3 hr</time></div>
+    </div>
+  </div>
+</section>
+
+<section class="list" id="list">
+  <div class="wrap list-grid">
+    <div class="list-txt">
+      <p class="eyebrow">Your list</p>
+      <h2>Send Scott what you picked.</h2>
+      <p>You don’t have to take all nine. Start with what fits BKM today.</p>
+      <ol class="next">
+        <li><span>Tap Send. Scott gets your picks right away.</span></li>
+        <li><span>We do one Zoom with your office team to learn how BKM runs.</span></li>
+        <li><span>You get one price for exactly what you picked.</span></li>
+        <li><span>We build it. You approve it before anything goes live.</span></li>
+      </ol>
+    </div>
+    <div class="ticket">
+      <h3>BKM’s picks</h3>
+      <ul class="picked" id="picked"></ul>
+      <div class="none" id="none">Nothing picked yet. Tap “Add to my list” on any tool above.</div>
+      <div class="send" id="sendBox">
+        <label for="fName">Your name<input id="fName" type="text" autocomplete="name" value="Frankie"></label>
+        <label for="fPhone">Best phone number<input id="fPhone" type="tel" autocomplete="tel" placeholder="Optional"></label>
+        <label for="fNote">Anything you want Scott to know<textarea id="fNote" rows="2" placeholder="Optional"></textarea></label>
+        <input type="text" id="fHp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
+        <div class="acts">
+          <button class="btn" type="button" id="sendBtn">Send my picks to Scott</button>
+          <button class="ghost" type="button" id="allBtn">Pick all nine</button>
+          <button class="ghost" type="button" id="clearBtn">Clear</button>
+        </div>
+        <p class="said" id="said" role="status"></p>
+      </div>
+      <div class="sentbox" id="sentBox" hidden>
+        <h3>Sent. Scott has your picks.</h3>
+        <p>He’ll reach out to set up the next step. Nothing else you need to do.</p>
+        <button class="ghost" type="button" id="againBtn">Change my picks</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot"><div class="wrap">Fix Your Brand · Made for Beautiful Kitchens and More, Staten Island, NY · Photos are BKM’s own work. Customer names, messages and times on this page are examples.</div></footer>
+
+<div class="tray" role="region" aria-label="Your list">
+  <div class="wrap">
+    <span class="tcount"><b id="tNum">0</b>picked</span>
+    <div class="chips" id="chips"></div>
+    <a class="btn" href="#list">See my list</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  var cards=[].slice.call(document.querySelectorAll('.card[data-id]'));
+  var KEY='bkm-menu-picks', picks=[];
+  try{ picks=JSON.parse(localStorage.getItem(KEY)||'[]')||[]; }catch(e){ picks=[]; }
+  var ids=cards.map(function(c){return c.dataset.id;});
+  picks=picks.filter(function(p){return ids.indexOf(p)>-1;});
+
+  var picked=document.getElementById('picked'), none=document.getElementById('none'),
+      current=[], chips=document.getElementById('chips'),
+      tNum=document.getElementById('tNum'), said=document.getElementById('said');
+
+  function save(){ try{ localStorage.setItem(KEY,JSON.stringify(picks)); }catch(e){} }
+  function render(){
+    var names=[];
+    cards.forEach(function(c){
+      var on=picks.indexOf(c.dataset.id)>-1, b=c.querySelector('.add');
+      c.classList.toggle('on',on);
+      b.textContent=on?'✓ On my list':'Add to my list';
+      b.setAttribute('aria-pressed',on?'true':'false');
+      if(on) names.push({id:c.dataset.id,name:c.dataset.name});
+    });
+    tNum.textContent=names.length;
+    picked.innerHTML=''; chips.innerHTML='';
+    names.forEach(function(n){
+      var li=document.createElement('li'), s=document.createElement('span'), x=document.createElement('button');
+      s.textContent=n.name; x.type='button'; x.textContent='Remove';
+      x.addEventListener('click',function(){ toggle(n.id); });
+      li.appendChild(s); li.appendChild(x); picked.appendChild(li);
+      var ch=document.createElement('span'); ch.textContent=n.name; chips.appendChild(ch);
+    });
+    if(!names.length){ var em=document.createElement('em'); em.textContent='Tap “Add to my list” on the tools you want.'; chips.appendChild(em); }
+    none.hidden=names.length>0;
+    current=names.map(function(n){return n.name;});
+    said.classList.remove('bad'); said.textContent='';
+  }
+  function toggle(id){ var i=picks.indexOf(id); if(i>-1) picks.splice(i,1); else picks.push(id); save(); render(); }
+  cards.forEach(function(c){ c.querySelector('.add').addEventListener('click',function(){ toggle(c.dataset.id); }); });
+  document.getElementById('allBtn').addEventListener('click',function(){ picks=ids.slice(); save(); render(); });
+  document.getElementById('clearBtn').addEventListener('click',function(){ picks=[]; save(); render(); });
+  var CLIENT='BKM', WHO='Frankie', ENDPOINT='https://api.web3forms.com/submit', KEY='PASTE_KEY_HERE';
+  var sendBtn=document.getElementById('sendBtn'), sendBox=document.getElementById('sendBox'), sentBox=document.getElementById('sentBox'), sending=false;
+  function val(id){ return (document.getElementById(id).value||'').trim(); }
+  sendBtn.addEventListener('click',function(){
+    if(sending) return;
+    said.classList.remove('bad');
+    if(!current.length){ said.classList.add('bad'); said.textContent='Pick at least one tool first.'; return; }
+    if(val('fHp')) return;
+    var name=val('fName')||WHO;
+    sending=true; sendBtn.disabled=true; sendBtn.textContent='Sending…'; said.textContent='';
+    var body={access_key:KEY, subject:CLIENT+' picked '+current.length+' tool'+(current.length>1?'s':'')+' ('+name+')', from_name:CLIENT+' tool menu',
+      Client:CLIENT, Name:name, Phone:val('fPhone')||'(not given)',
+      Picks:current.map(function(n,i){return (i+1)+'. '+n;}).join('\n'), Note:val('fNote')||'(none)', Sent:new Date().toLocaleString()};
+    fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(body)})
+      .then(function(r){ return r.json().catch(function(){return {};}).then(function(j){ return {ok:r.ok,j:j}; }); })
+      .then(function(res){ if(res.ok&&res.j&&res.j.success===true){ sendBox.hidden=true; sentBox.hidden=false; } else { throw new Error('send'); } })
+      .catch(function(){ said.classList.add('bad'); said.textContent='That didn’t go through. Please tap Send again, or text Scott your picks.'; })
+      .then(function(){ sending=false; sendBtn.disabled=false; sendBtn.textContent='Send my picks to Scott'; });
+  });
+  document.getElementById('againBtn').addEventListener('click',function(){ sentBox.hidden=true; sendBox.hidden=false; });
+  render();
+
+  /* 30 days: thirty different crops of BKM's own photos */
+  var P=['Jan20_0','Nov13_0','Oct16_0','Aug31_0','Nov06_0','Jan20_1','Nov13_1','Aug31_1','Nov06_1'];
+  var pos=['20% 30%','70% 60%','45% 80%','80% 25%','30% 65%','55% 45%','15% 75%'];
+  var month=document.getElementById('month');
+  for(var i=0;i<30;i++){
+    var d=document.createElement('div'), n=document.createElement('span');
+    d.style.backgroundImage='url(sheet-img/'+P[i%9]+'.jpg)';
+    d.style.backgroundSize=(i%3?'260%':'150%');
+    d.style.backgroundPosition=pos[(i*3)%7];
+    n.textContent=i+1; d.appendChild(n); month.appendChild(d);
+  }
+
+  var motionOK=!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+  /* carousel */
+  var caro=document.getElementById('caro'), track=caro.querySelector('.track'),
+      dots=[].slice.call(document.querySelectorAll('#caroDots i')), cc=document.getElementById('caroCount'), ci=0;
+  function slideTo(k){ ci=k%dots.length; track.style.transform='translateX(-'+(ci*100)+'%)'; dots.forEach(function(x,j){x.classList.toggle('on',j===ci);}); cc.textContent=(ci+1)+' / '+dots.length; }
+  if(motionOK) setInterval(function(){ slideTo(ci+1); },2800);
+  caro.addEventListener('click',function(){ slideTo(ci+1); });
+
+  /* conversations play when you scroll to them, then rest fully shown */
+  if(motionOK && 'IntersectionObserver' in window){
+    [].slice.call(document.querySelectorAll('[data-seq]')).forEach(function(box){
+      var steps=[].slice.call(box.querySelectorAll('.s')), t=null, run=false;
+      function play(){
+        steps.forEach(function(s){s.classList.add('hid');}); var i=0;
+        (function next(){ if(!run) return;
+          if(i<steps.length){ t=setTimeout(function(){ steps[i++].classList.remove('hid'); next(); }, i?1100:500); }
+          else t=setTimeout(play,4500);
+        })();
+      }
+      new IntersectionObserver(function(es){ es.forEach(function(e){
+        if(e.isIntersecting&&!run){ run=true; play(); }
+        else if(!e.isIntersecting&&run){ run=false; clearTimeout(t); steps.forEach(function(s){s.classList.remove('hid');}); }
+      }); },{threshold:.55}).observe(box);
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
